@@ -78,7 +78,8 @@ void presentation() {
 }
 
 void loop() { 
-
+  delay(1000);
+  
   float hum = dht.readHumidity();
   if (isnan(hum)) {
     Serial.println("Failed reading humidity from DHT");
@@ -92,7 +93,7 @@ void loop() {
   float temp = dht.readTemperature();
   if (isnan(temp)) {
     Serial.println("Failed reading temperature from DHT");
-  } else if (hum != lastTemp) {
+  } else if (temp != lastTemp) {
     lastTemp = temp;
     Serial.print("Temp: ");
     Serial.println(temp);
